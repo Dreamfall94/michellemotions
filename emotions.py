@@ -25,4 +25,3 @@ class Orientation(Reaction):
 class Exploration(Reaction):
 	pass
 
-
