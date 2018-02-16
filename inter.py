@@ -11,8 +11,15 @@ class Face(Tk):
         self.label.configure(image = self.emotion.face)
         self.label.pack()
 
-    def change_emotion(emotion = Reaction()):
-        pass
+        self.emotion_to = Incorporation()
+        self.after(500, self.change_emotion)
+
+    def change_emotion(self):
+        if self.emotion == self.emotion_to:
+            pass
+        else :
+            self.label.configure(image = self.emotion_to.face)
+            self.emotion = self.emotion_to
 
 
 if __name__ == '__main__':
