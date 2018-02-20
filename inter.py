@@ -11,7 +11,7 @@ class Face(Tk):
         self.label.configure(image = self.emotion.face)
         self.label.pack()
 
-        Button(self, text = 'Joy', command = lambda: self.change_emotion(Joy())).pack()
+        Button(self, text = 'Joy', command = lambda: self.change_emotion(Joy()) ).pack()
         Button(self, text = 'Horror', command = lambda: self.change_emotion(Horror()) ).pack()
         Button(self, text = 'Serenity', command = lambda: self.change_emotion(Serenity())).pack()
         Button(self, text = 'Delight', command = lambda: self.change_emotion(Delight())).pack()
