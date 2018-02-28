@@ -33,7 +33,7 @@ class Child(Person):            #Ребенок
         return obj.age < 15
 
 class Teen(Person):             #Подросток
-    def __init__(self, age = 16):
+    def __init__(self, age = 17):
         self.age = age
 
     def __eq__(self, obj):
@@ -79,7 +79,7 @@ class Aged(Person):             #В возрасте
 
 #lena = Girl(shhirt = kletchataya)
 if __name__ == '__main__':
-    lena = Person(sex = 'f', age = 17)
+    lena = Person(sex = 'm', age = 18)
     f = Female()
     t = Teen()
     print(f == lena, lena == t)
