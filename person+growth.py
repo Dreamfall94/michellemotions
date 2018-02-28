@@ -2,7 +2,7 @@
     #     def __init__(self,
     #                         sex = 'm',
     #                         age = 20,
-    #                         growth = 178,
+    ##                         growth = 178,
     #                         physique = 'medium',
     #                         employment = 'student',
     #                         emstate = 'funny',
