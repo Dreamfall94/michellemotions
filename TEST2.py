@@ -192,13 +192,14 @@ if __name__ == '__main__':
     # else:
     #     print('безмятежность, дружба = ', lena.relationship)
 
-def FirstStage(michelle, interlocutor):
+def firstStage(michelle, interlocutor):
     a = digitize(michelle.employment)/digitize(interlocutor.employment)
     b = digitize(michelle.hobby)/digitize(interlocutor.hobby)
 
 
-def digitize(str = 'workong'):
-    l = list(str)
+def digitize(str = 'workong'):          #Преобразование кортежа в число
     a = 0
-    for x in l: a+=ord(x)
+    for y in range(len(str)):
+        l=list(str[y])
+        for x in l: a+=ord(x)
     return a
