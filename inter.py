@@ -38,12 +38,16 @@ class Face(Tk):
         # Button(self, text = 'Admiration', command = lambda: self.change_emotion(Admiration())).pack()
 
     def loop(self):
-        d1v = cam1.rec()
-        d2v = cam2.rec()
-        some data = avg(d1,d2)
-        some data = camera.recognize()
-        x = firstStage(some data)
-        y = secondStage(x, some data)
+        # d1v = cam1.rec()
+        # d2v = cam2.rec()
+        # some data = avg(d1,d2)
+        # some data = camera.recognize()
+        x = firstStage(michelle, lena)
+        emo1stage = max(x)
+        y = secondStage(michelle, lena, emo1stage)
+        emo2stage = max(y, y.get)
+        emotion =
+
         self.change_emotion(y)
 
         self.after(500, self.loop)

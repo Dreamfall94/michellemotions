@@ -176,11 +176,6 @@ class Reading(Passive):                         #чтение
 class Gardening(Passive):                       #садоводство
     pass
 
-class Incorporation():				#Инкорпорация
-	def __init__(self, level = 0):
-		self.text = "Инкорпорация"
-		self.id = 'Incorporation'
-
 
 def firstStage(michelle, interlocutor):
     a = (digitize(michelle.employment)/digitize(interlocutor.employment)+digitize(michelle.hobby)/digitize(interlocutor.hobby))/2
