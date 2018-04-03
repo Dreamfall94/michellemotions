@@ -38,34 +38,14 @@ class Face(Tk):
         # Button(self, text = 'Admiration', command = lambda: self.change_emotion(Admiration())).pack()
 
     def loop(self):
+        d1v = cam1.rec()
+        d2v = cam2.rec()
+        some data = avg(d1,d2)
+        some data = camera.recognize()
+        x = firstStage(some data)
+        y = secondStage(x, some data)
+        self.change_emotion(y)
 
-
-
-        emo = open('emo.txt').read().strip('\n')
-
-        if emo == 'expectation': self.change_emotion(Expectation())
-        if emo == 'interest': self.change_emotion(Interest())
-        if emo == 'alertness': self.change_emotion(Alertness())
-        if emo == 'adoption': self.change_emotion(Adoption())
-        if emo == 'trust': self.change_emotion(Trust())
-        if emo == 'admiration': self.change_emotion(Admiration())
-        if emo == 'joy': self.change_emotion(Joy())
-        if emo == 'serenity': self.change_emotion(Serenity())
-        if emo == 'delight': self.change_emotion(Delight())
-        if emo == 'alarm': self.change_emotion(Alarm())
-        if emo == 'boredom': self.change_emotion(Boredom())
-        if emo == 'displeasure': self.change_emotion(Displeasure())
-        if emo == 'disgust': self.change_emotion(Disgust())
-        if emo == 'fear': self.change_emotion(Fear())
-        if emo == 'annoyance': self.change_emotion(Annoyance())
-        if emo == 'spite': self.change_emotion(Spite())
-        if emo == 'anger': self.change_emotion(Anger())
-        if emo == 'excitation': self.change_emotion(Excitation())
-        if emo == 'surprise': self.change_emotion(Surprise())
-        if emo == 'amazement': self.change_emotion(Amazement())
-        if emo == 'sorrow': self.change_emotion(Sorrow())
-        if emo == 'sadness': self.change_emotion(Sadness())
-        if emo == 'grief': self.change_emotion(Grief())
         self.after(500, self.loop)
 
     def change_emotion(self, emo):
