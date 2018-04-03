@@ -1,6 +1,27 @@
-g1 = 'test', 'testq', 'wqddqdq'
-a = 0
-for y in range(len(g1)):
-    l=list(g1[y])
-    for x in l: a+=ord(x)
-print(a)
+# def digitize(str):          #Преобразование кортежа в число
+#     a = 0
+#     for y in range(len(str)):
+#         l=list(str[y])
+#         for x in l: a+=ord(x)
+#     return a
+#
+#
+#
+# def firstStage():
+#     a = (digitize(('working', 'true'))/digitize(('working', 'true'))+digitize(('sports', 'true'))/digitize(('sports', 'true')))/2
+#     while a > 1:
+#         a-=1
+#     return a
+#
+#
+a = 1
+Инкорпорация = a * 5
+Отвержение = a * 6
+Протекция = a * 10
+Разрушение = a * 10
+Воспроизводство = a * 15
+Реинтеграция = a * 1
+Ориентация = a * 10
+Исследование = a * 11
+temp = {'Инкорпорация':Инкорпорация, 'Отвержение':Отвержение, 'Протекция':Протекция, 'Разрушение':Разрушение, 'Воспроизводство':Воспроизводство, 'Реинтеграция':Реинтеграция, 'Ориентация':Ориентация, 'Исследование':Исследование}
+print (max(temp, key=temp.get))
