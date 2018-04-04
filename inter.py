@@ -1,5 +1,7 @@
 from tkinter import *
 from emotions import *
+from stages import *
+
 
 class Face(Tk):
     def __init__(self):
@@ -11,6 +13,9 @@ class Face(Tk):
         self.label.configure(image = self.emotion.face)
         self.label.pack()
         self.after(500, self.loop)
+
+        self.michelle = Person(name = 'Michelle', sex = 'f', age = 18, growth = 130, employment = ('working', 'true'), hobby = ('gardening', 'programming', 'true'))
+        self.lena = Person(name = 'lena', sex = 'f', age = 18, growth = 165, employment = ('working', 'true'), hobby = ( 'gardening', 'programming', 'true'))
 
         # Button(self, text = 'Joy', command = lambda: self.change_emotion(Joy())).pack()
         # Button(self, text = 'Horror', command = lambda: self.change_emotion(Horror()) ).pack()
@@ -42,12 +47,10 @@ class Face(Tk):
         # d2v = cam2.rec()
         # some data = avg(d1,d2)
         # some data = camera.recognize()
-        x = firstStage(michelle, lena)
+        x = firstStage(self.michelle, self.lena)
         emo1stage = max(x)
-        y = secondStage(michelle, lena, emo1stage)
-        emo2stage = max(y, y.get)
-        emotion =
-
+        direction=x.get(emo1stage)
+        y = secondStage(self.michelle, self.lena, direction)
         self.change_emotion(y)
 
         self.after(500, self.loop)

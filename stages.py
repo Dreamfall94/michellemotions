@@ -1,3 +1,5 @@
+from emotions import *
+
 class Person():                 #Личность
     def __init__(self, name = 'temp', sex = 'm', age = 20, growth = 160, employment = ('working', 'false'), hobby = ('gardening', 'programming', 'false'), relationship = 50):
         self.name = name
@@ -183,30 +185,38 @@ def firstStage(michelle, interlocutor):
         a-=1
     incorporation = a * 5
     rejection = a * 6
-    patronage = a * 10
+    patronage = a * 70
     destruction = a * 10
-    reproduction = a * 15
-    reintegration = a * 19
-    orientation = a * 10
-    exploration = a * 11
-    return {incorporation: Incorporation(), rejection: Rejection(), patronage: Patronage(), destruction: Destruction(), reproduction: Reproduction(), reintegration: Reintegration(), orientation: Orientation(), exploration: Exploration()}
+    reproduction = a * 100
+    reintegration = a * 190
+    orientation = a * 20
+    exploration = a * 110
+    return {incorporation: 'Incorporation()', rejection: 'Rejection()', patronage: 'Patronage()', destruction: 'Destruction()', reproduction: 'Reproduction()', reintegration: 'Reintegration()', orientation: 'Orientation()', exploration: 'Exploration()'}
 
 def secondStage(michelle, interlocutor, emo1stage):
     a = (digitize(michelle.employment)/digitize(interlocutor.employment)+digitize(michelle.hobby)/digitize(interlocutor.hobby))/2
     while a > 1:
         a-=1
-    level1 = a * 20
-    level2 = a * 10
+    # level1 = a * 20
+    # level2 = a * 10
     level3 = a * 16
-    emotion_level = 0
-    # reaction_name = emo1stage.keys()[0]
-    if level1 > level2 and level1 > level3:
-        emotion_level = 1
-    elif level2 > level1 and level2 > level3:
-        emotion_level = 2
-    else: emotion_level = 3
-    return emotion_level
-
+    if emo1stage == 'Incorporation()':
+        return Delight()
+    if emo1stage == 'Rejection()':
+        return Disgust()
+    if emo1stage == 'Patronage()':
+        return Horror()
+    if emo1stage == 'Destruction()':
+        return Anger()
+    if emo1stage == 'Reproduction()':
+        return Amazement()
+    if emo1stage == 'Reintegration()':
+        return Grief()
+    if emo1stage == 'Orientation()':
+        return Alertness()
+    if emo1stage == 'Exploration()':
+        return Admiration()
+    return
 
 def digitize(str):          #Преобразование кортежа в число
     a = 0
