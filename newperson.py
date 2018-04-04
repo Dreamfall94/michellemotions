@@ -20,15 +20,14 @@
 
 
 class Person():                 #Личность
-    def __init__(self, name = 'temp', sex = 'm', age = 20, growth = 160, employment = 'temp', hobby = 'temp'):
+    def __init__(self, name = 'temp', sex = 'm', age = 20, growth = 160, employment = ('working', 'false'), hobby = ('gardening', 'programming', 'false'), relationship = 50):
         self.name = name
         self.sex = sex
         self.age = age
         self.growth = growth
         self.employment = employment
         self.hobby = hobby
-
-
+        self.relationship = relationship
 
 class Male(Person):             #Мужчина
     def __init__(self):
@@ -194,6 +193,10 @@ class BoardGames(Passive):                      #настольные игры
 
 class Reading(Passive):                         #чтение
     pass
+
+class Gardening(Passive):                       #садоводство
+    pass
+
 
 
 if __name__ == '__main__':
