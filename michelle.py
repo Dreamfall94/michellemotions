@@ -1,7 +1,7 @@
 from newperson import *
 from tkinter import *
 from emotions import *
-import os
+
 
 
 
@@ -113,7 +113,7 @@ class Michelle(Tk, Person):                 # Описание Мишель
 
     def loop(self):
 
-        x = self.firstStage()                 # Записываем словарь в переменную x
+        x = self.firstStage()                           # Записываем словарь в переменную x
         emo1stage = max(x)                              # Записываем max значение словаря
         direction=x.get(emo1stage)                      # Определяем 1 из 8 лепестков модели Плутчика
 

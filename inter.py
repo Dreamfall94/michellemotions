@@ -2,7 +2,6 @@ from tkinter import *
 from emotions import *
 from stages import *
 
-
 class Face(Tk):
     def __init__(self):
         super(Face, self).__init__()

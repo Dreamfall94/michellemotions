@@ -1,26 +1,5 @@
-    # class Person():                             #Личность
-    #     def __init__(self,
-    #                         sex = 'm',
-    #                         age = 20,
-    #                         growth = 178,
-    #                         physique = 'medium',
-    #                         employment = 'student',
-    #                         emstate = 'funny',
-    #                         hair = 'short',
-    #                         hobby = 'football',
-    #                         appearance = 'red shirt'):
-    #         self.age = age                      #возраст
-    #         self.growth = growth                #рост
-    #         self.physique = physique            #телосложение
-    #         self.employment = employment        #род деятельности
-    #         self.emstate = emstate              #эмоциональное состояние
-    #         self.hair = hair                    #волосы
-    #         self.hobby = hobby                  #хобби
-    #         self.appearance = appearance        #внешний вид
-
-
 class Person():                 #Личность
-    def __init__(self, name = 'temp', sex = 'm', age = 20, growth = 160, employment = ('working', 'false'), hobby = ('gardening', 'programming', 'false'), relationship = 50):
+    def __init__(self, name = 'temp', sex = 'm', age = 20, growth = 160, employment = ('working', 'false'), hobby = ('gardening', 'programming', 'false'), relationship = 0.5):
         self.name = name
         self.sex = sex
         self.age = age
