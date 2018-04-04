@@ -5,6 +5,8 @@ class Reaction():
 		self.text = ""
 		self.id = 'base'
 		self.face = PhotoImage(file =  "img/base.png")
+		self.face = self.face.zoom(5, 5)
+		self.face = self.face.subsample(2, 3)
 
 	def __call__(self, reaction):
 		self.face = reaction.face
@@ -135,6 +137,7 @@ class Grief(Reintegration):					#Реинтеграция: горе
 	def __init__(self, level = 3):
 		self.id = 'Grief'
 		self.face = PhotoImage(file =  "img/Reintegration/grief.png")
+	    # self.face = self.face.zoom(1, 1)
 
 class Orientation(Reaction):				#Ориентация
 	def __init__(self, level = 0):
