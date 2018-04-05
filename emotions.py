@@ -5,8 +5,8 @@ class Reaction():
 		self.text = ""
 		self.id = 'base'
 		self.face = PhotoImage(file =  "img/base.png")
-		self.face = self.face.zoom(5, 5)
-		self.face = self.face.subsample(2, 3)
+		self.face = self.face.zoom(1, 1)
+		self.face = self.face.subsample(1, 1)
 
 	def __call__(self, reaction):
 		self.face = reaction.face
