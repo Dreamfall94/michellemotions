@@ -48,10 +48,10 @@ class Michelle(Tk, Person):                 # Описание Мишель
 
     # Первая стадия: Определение 1 из 8 лепестков модели Плутчика
 
-    def firstStage(self):
+    def firstStage(self, b):
 
         a = (self.digitize(self.employment)/self.digitize(self.lena.employment)+
-            self.digitize(self.hobby)/self.digitize(self.lena.hobby))/2
+            self.digitize(self.hobby)/self.digitize(self.lena.hobby))/2 + b
 
         while a > 1:
             a-=1
@@ -70,10 +70,10 @@ class Michelle(Tk, Person):                 # Описание Мишель
 
     # Вторая стадия: Определение конкретной эмоции
 
-    def secondStage(self, emo1stage):
+    def secondStage(self, emo1stage, b):
 
         a = (self.digitize(self.employment)/self.digitize(self.lena.employment)+
-            self.digitize(self.hobby)/self.digitize(self.lena.hobby))/2
+            self.digitize(self.hobby)/self.digitize(self.lena.hobby))/2 + b
 
 
         while a > 1:
@@ -112,12 +112,14 @@ class Michelle(Tk, Person):                 # Описание Мишель
     # Основная часть программы
 
     def loop(self):
+        phrase = LiveSpeech
+        newPhrase = digitize(phrase)
 
-        x = self.firstStage()                           # Записываем словарь в переменную x
+        x = self.firstStage(newPhrase)                  # Записываем словарь в переменную x
         emo1stage = max(x)                              # Записываем max значение словаря
         direction=x.get(emo1stage)                      # Определяем 1 из 8 лепестков модели Плутчика
 
-        y = self.secondStage(direction)     # Узнаем эмоцию
+        y = self.secondStage(direction, newPhrase)     # Узнаем эмоцию
         programPause = input("Press the <ENTER> key to continue...")
         self.change_emotion(y)                          # Смена эмоции
         self.after(500, self.loop)                      # Интервал цикла
