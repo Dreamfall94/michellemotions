@@ -1,6 +1,7 @@
 from newperson import *
 from tkinter import *
 from emotions import *
+from Interlocutor import *
 
 
 
@@ -23,10 +24,10 @@ class Michelle(Tk, Person):                 # Описание Мишель
         self.relationship = relationship
 
         # Исправить!!!!!
-
-        self.lena = Person(name = 'lena', sex = 'f', age = 18,
-            growth = 165, employment = ('working', 'true'),
-            hobby = ( 'gardening', 'programming', 'true'))
+        #
+        # self.lena = Person(name = 'lena', sex = 'f', age = 18,
+        #     growth = 165, employment = ('working', 'true'),
+        #     hobby = ( 'gardening', 'programming', 'true'))
 
         # Формирование эмоции
 
@@ -60,7 +61,7 @@ class Michelle(Tk, Person):                 # Описание Мишель
         patronage = a * 70
         destruction = a * 10
         reproduction = a * 100
-        reintegration = a * 190
+        reintegration = a * 10
         orientation = a * 20
         exploration = a * 110
         return {incorporation: 'Incorporation()', rejection: 'Rejection()',
@@ -109,11 +110,19 @@ class Michelle(Tk, Person):                 # Описание Мишель
             for x in l: a+=ord(x)
         return a
 
+    # Базовые комманды
+
+    def commands(self, command):
+        if command == 'улыбнись' or command == 'обрадуйся': return Joy()
+        if command == 'заплачь': return Grief()
+        if command == 'успокойся' or command == 'спокойно': return Adoption()
+        return
+
     # Основная часть программы
 
     def loop(self):
-        phrase = LiveSpeech
-        newPhrase = digitize(phrase)
+        phrase = 'успокойся'
+        newPhrase = self.digitize(phrase)
 
         x = self.firstStage(newPhrase)                  # Записываем словарь в переменную x
         emo1stage = max(x)                              # Записываем max значение словаря
@@ -122,6 +131,8 @@ class Michelle(Tk, Person):                 # Описание Мишель
         y = self.secondStage(direction, newPhrase)     # Узнаем эмоцию
         programPause = input("Press the <ENTER> key to continue...")
         self.change_emotion(y)                          # Смена эмоции
+        y=self.commands(phrase)
+        self.change_emotion(y)
         self.after(500, self.loop)                      # Интервал цикла
 
 

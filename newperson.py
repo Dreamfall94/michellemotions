@@ -1,5 +1,5 @@
 class Person():                 #Личность
-    def __init__(self, name = 'temp', sex = 'm', age = 20, growth = 160, employment = ('working', 'false'), hobby = ('gardening', 'programming', 'false'), relationship = 0.5):
+    def __init__(self, name = 'temp', sex = 'temp', age = 20, growth = 160, employment = ('working', 'false'), hobby = ('gardening', 'programming', 'false'), relationship = 0.5):
         self.name = name
         self.sex = sex
         self.age = age
