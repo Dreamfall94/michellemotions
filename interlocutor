@@ -1,0 +1,15 @@
+{
+    "age": "1",
+    "employment": [
+        "цвй",
+        "; true"
+    ],
+    "growth": "23",
+    "hobby": [
+        "цкй",
+        "; true"
+    ],
+    "name": "АЛ",
+    "relationship": 0.5,
+    "sex": "m"
+}

@@ -1,5 +1,7 @@
 class Person():                 #Личность
-    def __init__(self, name = 'temp', sex = 'temp', age = 20, growth = 160, employment = ('working', 'false'), hobby = ('gardening', 'programming', 'false'), relationship = 0.5):
+    def __init__(self, name = 'temp', sex = 'temp', age = 20, growth = 160,
+    employment = ['working', 'false'], hobby = ['gardening', 'programming',
+    'false'], relationship = 0.5):
         self.name = name
         self.sex = sex
         self.age = age
@@ -22,28 +24,44 @@ class Female(Person):           #Женщина
     def __eq__(self, obj):
         return self.sex == obj.sex
 
-class Child(Person):            #Ребенок
+class Age(Person):                      #Возраст
+
+    def __init__(self):
+        self.age = age
+
+    def __eq__(self, obj):
+        ages = [12.5, 17.5, 22.5, 67.5]
+        feelAges = []
+        maxFeel = 0
+        for elem in ages:
+            feelAges.append(e**(-((elem-int(obj.age))/15)**2))
+            if maxFeel < e**(-((elem-int(obj.age))/15)**2):
+                maxFeel = e**(-((elem-int(obj.age))/15)**2)
+        feelAges.insert(0, maxFeel)
+        return feelAges
+
+class Child(Age):            #Ребенок
     def __init__(self, age = 7):
         self.age = age
 
     def __eq__(self, obj):
         return obj.age < 15
 
-class Teen(Person):             #Подросток
+class Teen(Age):             #Подросток
     def __init__(self, age = 16):
         self.age = age
 
     def __eq__(self, obj):
         return 14 < obj.age < 20
 
-class Adult(Person):                         #Взрослый
+class Adult(Age):                         #Взрослый
     def __init__(self, age = 32):
         self.age = age
 
     def __eq__(self, obj):
         return 20 < obj.age < 45
 
-class Aged(Person):                          #В возрасте
+class Aged(Age):                          #В возрасте
     def __init__(self, age = 50):
         self.age = age
 
@@ -55,7 +73,22 @@ class Growth(Person):                        #рост
         self.growth = growth
 
     def __eq__(self, obj):
-        return self.growth == obj.growth
+        manGrowth = [155, 165, 175, 185, 195]
+        femGrowth = [147.5,155, 162.5, 170, 177.5]
+        feelGrowth = []
+        maxFeel = 0
+        if obj.sex == 'm':
+            for elem in manGrowth:
+                feelGrowth.append(e**(-((elem-int(obj.growth))/15)**2))
+                if maxFeel < e**(-((elem-int(obj.growth))/15)**2):
+                    maxFeel = e**(-((elem-int(obj.growth))/15)**2)
+        else:
+            for elem in femGrowth:
+                feelGrowth.append(e**(-((elem-int(obj.growth))/15)**2))
+                if maxFeel < e**(-((elem-int(obj.growth))/15)**2):
+                    maxFeel = e**(-((elem-int(obj.growth))/15)**2)
+        feelGrowth(0, maxFeel)
+        return feelGrowth
 
 class Low(Growth):                      #низкого роста
     def __init__(self, growth = 160):

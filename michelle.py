@@ -1,15 +1,15 @@
 from newperson import *
 from tkinter import *
 from emotions import *
-from Interlocutor import *
+from interlocutor import *
 
 
 
 
 class Michelle(Tk, Person):                 # Описание Мишель
     def __init__(self, name = 'Michelle', sex = 'f',
-        age = 18, growth = 130, employment = ('working', 'true'),
-        hobby = ('gardening', 'programming', 'true'), relationship = 0.7):
+        age = 18, growth = 130, employment = ['working', 'true'],
+        hobby = ['gardening', 'programming', 'true'], relationship = 0.7):
 
         super().__init__()
 
@@ -49,10 +49,10 @@ class Michelle(Tk, Person):                 # Описание Мишель
 
     # Первая стадия: Определение 1 из 8 лепестков модели Плутчика
 
-    def firstStage(self, b):
+    def firstStage(self, interlocutor):
 
-        a = (self.digitize(self.employment)/self.digitize(self.lena.employment)+
-            self.digitize(self.hobby)/self.digitize(self.lena.hobby))/2 + b
+        a = (self.digitize(self.employment)/self.digitize(interlocutor.employment)+
+            self.digitize(self.hobby)/self.digitize(interlocutor.hobby))/2
 
         while a > 1:
             a-=1
@@ -71,33 +71,67 @@ class Michelle(Tk, Person):                 # Описание Мишель
 
     # Вторая стадия: Определение конкретной эмоции
 
-    def secondStage(self, emo1stage, b):
+    def secondStage(self, emo1stage, interlocutor):
 
-        a = (self.digitize(self.employment)/self.digitize(self.lena.employment)+
-            self.digitize(self.hobby)/self.digitize(self.lena.hobby))/2 + b
-
+        a = (self.digitize(self.employment)/self.digitize(interlocutor.employment)+
+            self.digitize(self.hobby)/self.digitize(interlocutor.hobby))/2
 
         while a > 1:
             a-=1
-        # level1 = a * 20
-        # level2 = a * 10
+        level1 = a * 20
+        level2 = a * 10
         level3 = a * 16
-        if emo1stage == 'Incorporation()':
-            return Delight()
-        if emo1stage == 'Rejection()':
-            return Disgust()
-        if emo1stage == 'Patronage()':
-            return Horror()
-        if emo1stage == 'Destruction()':
-            return Anger()
-        if emo1stage == 'Reproduction()':
-            return Amazement()
-        if emo1stage == 'Reintegration()':
-            return Grief()
-        if emo1stage == 'Orientation()':
-            return Alertness()
-        if emo1stage == 'Exploration()':
-            return Admiration()
+        if level1 > level3 and level1 > level2:
+            if emo1stage == 'Incorporation()':
+                return Serenity()
+            if emo1stage == 'Rejection()':
+                return Boredom()
+            if emo1stage == 'Patronage()':
+                return Alarm()
+            if emo1stage == 'Destruction()':
+                return Annoyance()
+            if emo1stage == 'Reproduction()':
+                return Excitation()
+            if emo1stage == 'Reintegration()':
+                return Sorrow()
+            if emo1stage == 'Orientation()':
+                return Interest()
+            if emo1stage == 'Exploration()':
+                return Adoption()
+        elif level2 > level3:
+            if emo1stage == 'Incorporation()':
+                return Joy()
+            if emo1stage == 'Rejection()':
+                return Displeasure()
+            if emo1stage == 'Patronage()':
+                return Fear()
+            if emo1stage == 'Destruction()':
+                return Spite()
+            if emo1stage == 'Reproduction()':
+                return Surprise()
+            if emo1stage == 'Reintegration()':
+                return Sadness()
+            if emo1stage == 'Orientation()':
+                return Expectation()
+            if emo1stage == 'Exploration()':
+                return Trust()
+        else:
+            if emo1stage == 'Incorporation()':
+                return Delight()
+            if emo1stage == 'Rejection()':
+                return Disgust()
+            if emo1stage == 'Patronage()':
+                return Horror()
+            if emo1stage == 'Destruction()':
+                return Anger()
+            if emo1stage == 'Reproduction()':
+                return Amazement()
+            if emo1stage == 'Reintegration()':
+                return Grief()
+            if emo1stage == 'Orientation()':
+                return Alertness()
+            if emo1stage == 'Exploration()':
+                return Admiration()
         return
 
 
@@ -121,18 +155,17 @@ class Michelle(Tk, Person):                 # Описание Мишель
     # Основная часть программы
 
     def loop(self):
-        phrase = 'успокойся'
-        newPhrase = self.digitize(phrase)
-
-        x = self.firstStage(newPhrase)                  # Записываем словарь в переменную x
+        interlocutor = mainInterloc()
+        # phrase = 'успокойся'
+        # newPhrase = self.digitize(phrase)
+        x = self.firstStage(interlocutor)               # Записываем словарь в переменную x
         emo1stage = max(x)                              # Записываем max значение словаря
         direction=x.get(emo1stage)                      # Определяем 1 из 8 лепестков модели Плутчика
 
-        y = self.secondStage(direction, newPhrase)     # Узнаем эмоцию
-        programPause = input("Press the <ENTER> key to continue...")
+        y = self.secondStage(direction, interlocutor)   # Узнаем эмоцию
         self.change_emotion(y)                          # Смена эмоции
-        y=self.commands(phrase)
-        self.change_emotion(y)
+        # y=self.commands(phrase)
+        # self.change_emotion(y)
         self.after(500, self.loop)                      # Интервал цикла
 
 
